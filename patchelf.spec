@@ -4,13 +4,13 @@
 #
 Summary:	A utility for patching ELF binaries
 Name:		patchelf
-Version:	0.3
+Version:	0.13
 Release:	1
 License:	GPL
 Group:		Development/Tools
-URL:		http://nix.cs.uu.nl/patchelf.html
-Source0:	http://nix.cs.uu.nl/dist/nix/patchelf-0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	20d77052ae559c60e6c5efb6ea95af9b
+URL:		https://github.com/NixOS/patchelf
+Source0:	https://github.com/NixOS/patchelf/releases/download/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	d387eee9325414be0b1a80c8fbd2745f
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -19,7 +19,7 @@ libraries. It can change the dynamic loader ("ELF interpreter") of
 executables and change the RPATH of executables and libraries.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.20210805.a949ff2
 
 %build
 %configure
@@ -36,4 +36,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README.md
 %attr(755,root,root) %{_bindir}/patchelf
+%{_mandir}/man1/patchelf.1*
