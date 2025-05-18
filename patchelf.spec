@@ -27,6 +27,20 @@ wykonywalnych i bibliotek ELF. Potrafi zmienić loader dynamiczny
 ("interpreter ELF") programów wykonywalnych oraz zmienić RPATH
 programów oraz bibliotek.
 
+%package -n zsh-completion-patchelf
+Summary:	ZSH completion for patchelf command
+Summary(pl.UTF-8):	Dopełnianianie parametrów w ZSH dla polecenia patchelf
+Group:		Applications/Shells
+Requires:	%{name} = %{version}-%{release}
+Requires:	zsh
+BuildArch:	noarch
+
+%description -n zsh-completion-patchelf
+ZSH completion for patchelf command.
+
+%description -n zsh-completion-patchelf -l pl.UTF-8
+Dopełnianianie parametrów w ZSH dla polecenia patchelf.
+
 %prep
 %setup -q
 
@@ -52,4 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md
 %attr(755,root,root) %{_bindir}/patchelf
 %{_mandir}/man1/patchelf.1*
+
+%files -n zsh-completion-patchelf
+%defattr(644,root,root,755)
 %{zsh_compdir}/_patchelf
