@@ -13,6 +13,7 @@ Source0:	https://github.com/NixOS/patchelf/releases/download/%{version}/%{name}-
 # Source0-md5:	9b091a689583fdc7c3206679586322d5
 URL:		https://github.com/NixOS/patchelf
 BuildRequires:	libstdc++-devel >= 6:7
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.719
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
